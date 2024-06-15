@@ -1,0 +1,100 @@
+// Variables
+$primary-color: #333;
+$secondary-color: #555;
+$border-color: #ccc;
+$background-color: #f9f9f9;
+$input-padding: 10px;
+$input-border-radius: 5px;
+$font-family: Arial, sans-serif;
+
+// Mixin for form input styles
+@mixin input-styles {
+  padding: $input-padding;
+  border: 1px solid $border-color;
+  border-radius: $input-border-radius;
+  font-family: $font-family;
+  font-size: 1em;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// General form styles
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: $background-color;
+  border-radius: $input-border-radius;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-family: $font-family;
+
+  // Centering the title and description
+  div[style*='text-align: center'] {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  // Personal data section
+  div {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-bottom: 15px;
+
+    input[type="text"],
+    input[type="number"],
+    input[type="email"] {
+      @include input-styles;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
+    }
+  }
+
+  // Radio button labels
+  input[type="radio"] + label {
+    margin-right: 15px;
+    font-weight: normal;
+  }
+}
+
+// Styles for different sections
+p {
+  display: flex;
+  flex-direction: column;
+
+  & + p {
+    margin-top: 15px;
+  }
+
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  input {
+    margin-bottom: 5px;
+  }
+}
+
+// Additional styles for specific input fields
+input[type="email"] {
+  @include input-styles;
+  padding-right: 40px;
+  background: url('https://img.icons8.com/ios-glyphs/30/000000/new-post.png') no-repeat right 10px center;
+  background-size: 20px 20px;
+}
+
+// Media queries for responsiveness
+@media (max-width: 600px) {
+  form {
+    padding: 10px;
+  }
+
+  p {
+    flex-direction: column;
+  }
+}

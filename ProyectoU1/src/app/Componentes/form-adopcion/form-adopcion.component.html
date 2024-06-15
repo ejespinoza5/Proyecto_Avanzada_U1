@@ -1,0 +1,60 @@
+<form>
+    <div style="text-align: center">
+        CUESTIONARIO PRE-ADOPCIÓN ASOCIACIÓN UNA SOLA MISION
+    </div><br>
+    <div style="text-align: center">
+        El objetivo de este cuestionario es encontrar la combinación perfecta entre perro y amo óptima, de manera
+        que ambos sean felices tras la adopción.
+
+        Por favor, responda a continuación cada pregunta, con la mayor claridad posible, y extiéndase en sus respuestas
+        tanto como desee o crea necesario.
+    </div>
+    <div>
+        Datos Personales:
+    </div>
+    <p>
+        Nombres: <br>
+        <input type="text" formControlName="name">
+    </p>
+    <p>
+        Apellidos: <br>
+        <input type="text" formControlName="lastName">
+    </p>
+    <p>
+        Cedula o DNI: <br>
+        <input type="number" formControlName="dni">
+    </p>
+    <p>
+        Año de nacimiento: <br>
+        <input type="number" formControlName="birthYear">
+    </p>
+    <p>
+        Dirección: <br>
+        <input type="text" formControlName="address"><br>
+        Calle principal <br>
+        <input type="text" formControlName="address2"><br>
+        Calle secundaria
+    </p>
+    <p>
+        Codigo postal: <br>
+        <input type="number" formControlName="postalCode">
+    </p>
+    <p>
+        Estado civil: <br>
+        <input type="radio" name="civilStatus" formControlName="civilStatus" value="single"> Soltero/a
+        <input type="radio" name="civilStatus" formControlName="civilStatus" value="married"> Casado/a
+        <input type="radio" name="civilStatus" formControlName="civilStatus" value="divorced"> Divorciado/a
+        <input type="radio" name="civilStatus" formControlName="civilStatus" value="widowed"> Viudo/a
+        <input type="radio" name="civilStatus" formControlName="civilStatus" value="other"> Otro
+    </p>
+    <p>
+        Numero de teléfono: <br>
+        <input type="number" formControlName="phoneNumber"><br>
+        Numero de teléfono alternativo: <br>
+        <input type="number" formControlName="phoneNumber2">
+    </p>
+    <p>
+        Correo electrónico: <br>
+        <input type="email" formControlName="email" placeholder="example@example.com">
+    </p>
+</form>
