@@ -7,91 +7,92 @@
         El objetivo de este cuestionario es encontrar la combinación perfecta entre perro y amo óptima, de manera que ambos sean felices tras la adopción.
         <br><br>
         Por favor, responda a continuación cada pregunta con la mayor claridad posible, y extiéndase en sus respuestas tanto como desee o crea necesario.
+        Los campos marcados con un asterisco <label style="color: red;">*</label> son obligatorios.
     </div>
     <div class="row">
         <div class="column col-md-6">
             <fieldset>
                 <legend>Datos Personales</legend>
                 <p>
-                    <label for="name">Nombres:</label><br>
+                    <label for="name">Nombres: <label style="color: red;">*</label></label><br>
                     <input type="text" formControlname="name" class="form-control">
                 </p>
                 <p>
-                    <label for="lastName">Apellidos:</label><br>
-                    <input type="text" id="lastName" name="lastName" class="form-control">
+                    <label for="lastName">Apellidos: <label style="color: red;">*</label></label><br>
+                    <input type="text" formControlname="lastName" class="form-control">
                 </p>
                 <p>
-                    <label for="dni">Cédula o DNI:</label><br>
-                    <input type="number" id="dni" name="dni" class="form-control">
+                    <label for="dni">Cédula o DNI: <label style="color: red;">*</label></label><br>
+                    <input type="number" formControlname="dni" class="form-control">
                 </p>
                 <p>
-                    <label for="birthYear">Año de nacimiento:</label><br>
-                    <input type="number" id="birthYear" name="birthYear" class="form-control">
+                    <label for="birthYear">Año de nacimiento: <label style="color: red;">*</label></label><br>
+                    <input type="number" formControlname="birthYear" class="form-control">
                 </p>
                 <p>
-                    <label for="address">Dirección:</label><br>
-                    <input type="text" id="address" name="address" class="form-control">
+                    <label for="address">Dirección: <label style="color: red;">*</label></label><br>
+                    <input type="text" formControlname="address" class="form-control">
                     <small>Calle principal</small><br>
-                    <input type="text" id="address2" name="address2" class="form-control">
+                    <input type="text" formControlname="address2" class="form-control">
                     <small>Calle secundaria</small>
                 </p>
                 <p>
                     <label for="postalCode">Código postal:</label><br>
-                    <input type="number" id="postalCode" name="postalCode" class="form-control">
+                    <input type="number" formControlname="postalCode" class="form-control">
                 </p>
                 <p>
-                    <label>Estado civil:</label><br>
-                    <input type="radio" name="civilStatus" value="single"> Soltero/a <br>
-                    <input type="radio" name="civilStatus" value="married"> Casado/a <br>
-                    <input type="radio" name="civilStatus" value="divorced"> Divorciado/a <br>
-                    <input type="radio" name="civilStatus" value="widowed"> Viudo/a <br>
-                    <input type="radio" name="civilStatus" value="other"> Otro
+                    <label>Estado civil: <label style="color: red;">*</label></label><br>
+                    <input type="radio" formControlname="civilStatus" value="single"> Soltero/a <br>
+                    <input type="radio" formControlname="civilStatus" value="married"> Casado/a <br>
+                    <input type="radio" formControlname="civilStatus" value="divorced"> Divorciado/a <br>
+                    <input type="radio" formControlname="civilStatus" value="widowed"> Viudo/a <br>
+                    <input type="radio" formControlname="civilStatus" value="other"> Otro
                 </p>
                 <p>
-                    <label for="phoneNumber">Número de teléfono:</label><br>
-                    <input type="number" id="phoneNumber" name="phoneNumber" class="form-control"><br>
+                    <label for="phoneNumber">Número de teléfono: <label style="color: red;">*</label></label><br>
+                    <input type="number" formControlname="phoneNumber" class="form-control"><br>
                     <label>Número de teléfono alternativo</label><br>
-                    <input type="number" id="phoneNumber2" name="phoneNumber2" class="form-control">
+                    <input type="number" formControlname="phoneNumber2" class="form-control">
                 </p>
                 <p>
-                    <label for="email" style="margin-top: 2%;">Correo electrónico:</label><br>
-                    <input type="email" id="email" name="email" placeholder="example@example.com" class="form-control">
+                    <label for="email" style="margin-top: 2%;">Correo electrónico: <label style="color: red;">*</label></label><br>
+                    <input type="email" formControlname="email" placeholder="example@example.com" class="form-control">
                 </p>
             </fieldset>
             <fieldset>
                 <legend>Familia</legend>
                 <p>
-                    <label for="familyMembers">¿Cuántas personas viven en su hogar?</label><br>
-                    <input type="number" id="familyMembers" name="familyMembers" class="form-control">
+                    <label for="familyMembers">¿Cuántas personas viven en su hogar? <label style="color: red;">*</label></label><br>
+                    <input type="number" formControlname="familyMembers" class="form-control" placeholder="0">
                 </p>
                 <p>
-                    <label>¿Tiene hijos?</label><br>
-                    <input type="radio" name="children" value="yes"> Sí <br>
-                    <input type="radio" name="children" value="no"> No
+                    <label>¿Tiene hijos? <label style="color: red;">*</label></label><br>
+                    <input type="radio" formControlname="children" value="yes"> Sí <br>
+                    <input type="radio" formControlname="children" value="no"> No
                 </p>
                 <p>
                     <label>Si su respuesta fue Sí, ¿Cuántos niños viven en su hogar?</label><br>
-                    <input type="number" id="numberOfChildren" name="numberOfChildren" class="form-control">
+                    <input type="number" formControlname="numberOfChildren" class="form-control" placeholder="0">
                 </p>
                 <p>
-                    <label>En caso de no tener hijos, ¿Tiene pensado tenerlos en un futuro cercano?</label><br>
-                    <input type="radio" name="futureChildren" value="yes"> Sí <br>
-                    <input type="radio" name="futureChildren" value="no"> No
+                    <label>En caso de no tener hijos, ¿Tiene pensado tenerlos en un futuro cercano? <label style="color: red;">*</label></label>
+                    <input type="radio" formControlname="futureChildren" value="yes"> Sí <br>
+                    <input type="radio" formControlname="futureChildren" value="no"> No
                 </p>
             </fieldset>
             <fieldset>
                 <legend>Ocupación y Tiempo libre</legend>
                 <p>
-                    <label for="occupation">Ocupación:</label><br>
-                    <input type="text" id="occupation" name="occupation" class="form-control">
+                    <label for="occupation">Ocupación: <label style="color: red;">*</label></label><br>
+                    <input type="text" formControlname="occupation" class="form-control">
                 </p>
                 <p>
-                    <label for="workHours">¿Cuántas horas al día trabaja?</label><br>
-                    <input type="number" id="workHours" name="workHours" class="form-control">
+                    <label for="workHours">¿Cuántas horas al día trabaja? <label style="color: red;">*</label></label><br>
+                    <input type="number" formControlname="workHours" class="form-control">
                 </p>
                 <p>
-                    <label for="vacations">Si se va de vacaciones, ¿Qué hará con su mascota?</label><br>
-                    <input type="text" id="vacations" name="vacations" class="form-control">
+                    <label for="vacations">Si se va de vacaciones, ¿Qué hará con su mascota? <label style="color: red;">*</label></label><br>
+                    <input type="text" formControlname="vacations" class="form-control">
                 </p>
             </fieldset>
         </div>
@@ -99,7 +100,7 @@
             <fieldset>
                 <legend>Vivienda</legend>
                 <p>
-                    <label>Tipo de vivienda:</label><br>
+                    <label>Tipo de vivienda: <label style="color: red;">*</label></label><br>
                     <select class="form-select" formControlName="houseType">
                         <option selected>Abre este menú y seleccione una opción</option>
                         <option value="house">Casa</option>
@@ -108,72 +109,79 @@
                     </select>
                 </p>
                 <p>
-                    <label>¿Es propietario de la vivienda?</label><br>
-                    <input type="radio" name="houseOwner" value="yes"> Sí <br>
-                    <input type="radio" name="houseOwner" value="no"> No
+                    <label>¿Es propietario de la vivienda? <label style="color: red;">*</label></label><br>
+                    <input type="radio" formControlname="houseOwner" value="yes"> Sí <br>
+                    <input type="radio" formControlname="houseOwner" value="no"> No
                 </p>
                 <p>
                     <label>Si su respuesta fue No, ¿Tiene permiso del propietario para tener animales en la vivienda?</label><br>
-                    <input type="radio" name="housePermission" value="yes"> Sí <br>
-                    <input type="radio" name="housePermission" value="no"> No
+                    <input type="radio" formControlname="housePermission" value="yes"> Sí <br>
+                    <input type="radio" formControlname="housePermission" value="no"> No
                 </p>
                 <p>
-                    <label>¿Tiene patio o jardín?</label><br>
-                    <input type="radio" name="yard" value="yes"> Sí <br>
-                    <input type="radio" name="yard" value="no"> No
+                    <label>¿Tiene patio o jardín? <label style="color: red;">*</label></label><br>
+                    <input type="radio" formControlname="yard" value="yes"> Sí <br>
+                    <input type="radio" formControlname="yard" value="no"> No
                 </p>
                 <p>
                     <label>Si su respuesta fue Sí, ¿está convenientemente vallado para evitar que los perros puedan “irse de paseo”?</label><br>
-                    <input type="radio" name="fence" value="yes"> Sí <br>
-                    <input type="radio" name="fence" value="no"> No
+                    <input type="radio" formControlname="fence" value="yes"> Sí <br>
+                    <input type="radio" formControlname="fence" value="no"> No
                 </p>
             </fieldset>
             <fieldset>
                 <legend>Sobre la adopción</legend>
                 <p>
-                    <label for="petType">¿Qué tipo de animal busca? (Perro, gato, otro)</label><br>
-                    <input type="text" id="petType" name="petType" class="form-control">
+                    <label for="petType">¿Qué tipo de animal busca? (Perro, gato, otro) <label style="color: red;">*</label></label><br>
+                    <input type="text" formControlname="petType" class="form-control">
                 </p>
                 <p>
-                    <label for="reason">¿Por qué desea adoptar una mascota? (Por compañía, para cría, para caza, como guardián, como terapia, regalo, etc.)</label><br>
-                    <input type="text" id="reason" name="reason" class="form-control">
+                    <label for="reason">¿Por qué desea adoptar una mascota? (Por compañía, para cría, para caza, como guardián, como terapia, regalo, etc.) <label style="color: red;">*</label></label><br>
+                    <input type="text" formControlname="reason" class="form-control">
                 </p>
                 <p>
-                    <label>¿Ha tenido animales anteriormente?</label><br>
-                    <input type="radio" name="previousPets" value="yes"> Sí <br>
-                    <input type="radio" name="previousPets" value="no"> No
+                    <label>¿Ha tenido animales anteriormente? <label style="color: red;">*</label></label><br>
+                    <input type="radio" formControlname="previousPets" value="yes"> Sí <br>
+                    <input type="radio" formControlname="previousPets" value="no"> No
                 </p>
                 <p>
                     <label for="previousPetsDetails">En caso afirmativo, indique qué tipo de animal y por cuánto tiempo:</label><br>
-                    <input type="text" id="previousPetsDetails" name="previousPetsDetails" class="form-control">
+                    <input type="text" formControlname="previousPetsDetails" class="form-control">
                 </p>
                 <p>
-                    <label for="currentPets">¿Cuántas mascotas tiene actualmente?</label><br>
-                    <input type="number" id="currentPets" name="currentPets" class="form-control">
+                    <label for="currentPets">¿Cuántas mascotas tiene actualmente? <label style="color: red;">*</label></label><br>
+                    <input type="number" formControlname="currentPets" class="form-control" placeholder="0">
                 </p>
                 <p>
                     <label for="currentPetDetails">Especifique especie, raza, edad y sexo de cada una:</label><br>
-                    <input type="text" id="currentPetDetails" name="currentPetDetails" class="form-control">
+                    <input type="text" formControlname="currentPetDetails" class="form-control" placeholder="gato, persa, 3 años, hembra.">
                 </p>
                 <p>
                     <label>¿Sus mascotas están castradas/esterilizadas?</label><br>
-                    <input type="radio" name="petsNeutered" value="yes"> Sí <br>
-                    <input type="radio" name="petsNeutered" value="no"> No
+                    <input type="radio" formControlname="petsNeutered" value="yes"> Sí <br>
+                    <input type="radio" formControlname="petsNeutered" value="no"> No
                 </p>
                 <p>
                     <label>¿Están sus mascotas al día en sus vacunas?</label><br>
-                    <input type="radio" name="petsVaccinated" value="yes"> Sí <br>
-                    <input type="radio" name="petsVaccinated" value="no"> No
+                    <input type="radio" formControlname="petsVaccinated" value="yes"> Sí <br>
+                    <input type="radio" formControlname="petsVaccinated" value="no"> No
                 </p>
                 <p>
-                    <label for="financialAbility">¿Cuenta con los medios financieros para la manutención de un animal? (alimento, veterinario, peluquería, posibles emergencias…)</label><br>
-                    <input type="text" id="financialAbility" name="financialAbility" class="form-control">
+                    <label for="financialAbility">¿Cuenta con los medios financieros para la manutención de un animal? (alimento, veterinario, peluquería, posibles emergencias…) <label style="color: red;">*</label></label><br>
+                    <input type="text" formControlname="financialAbility" class="form-control">
                 </p>
                 <p>
-                    <label for="additionalInfo">Por favor, proporcione cualquier otra información que considere importante para su solicitud de adopción:</label><br>
-                    <textarea id="additionalInfo" name="additionalInfo" rows="4" class="form-control"></textarea>
+                    <label for="additionalInfo">Por favor, proporcione cualquier otra información que considere importante para su solicitud de adopción: <label style="color: red;">*</label></label><br>
+                    <textarea formControlname="additionalInfo" rows="4" class="form-control"></textarea>
                 </p>
             </fieldset>
         </div>
+    </div>
+    <div class="text-center mt-4">
+        <button class="button-orange" type="submit" style="margin-bottom: 1%; margin-right: 10%;">Enviar</button>
+        <button type="reset" class="button-in-or" style="margin-bottom: 1%;">Cancelar</button>
+    </div>
+    <div>
+        <small style="size: 10px;">Nota: Al hacer clic en "Enviar", usted acepta que la información proporcionada es veraz y que la Asociación Una Sola Misión se reserva el derecho de aceptar o rechazar su solicitud de adopción.</small>
     </div>
 </form>

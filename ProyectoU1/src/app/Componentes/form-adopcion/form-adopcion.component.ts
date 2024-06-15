@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
   styleUrl: './form-adopcion.component.scss'
 })
 export class FormAdopcionComponent {
-
 }
