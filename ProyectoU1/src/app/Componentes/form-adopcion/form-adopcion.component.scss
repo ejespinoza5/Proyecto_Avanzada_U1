@@ -62,33 +62,61 @@ p {
 }
 
 .button-orange {
-    color: #ff7f00; // Color del texto
-    border: 2px solid #ff7f00; // Color del borde
+    width: 150px;
+    height: 40px;
+    color: #ff7f00;
+    border: 2px solid #ff7f00;
     background-color: transparent;
     padding: 10px 20px;
     font-size: 1em;
     font-weight: bold;
     border-radius: 8px;
     transition: background-color 0.3s, color 0.3s;
+    text-align: center !important;
 
     &:hover {
-        background-color: #ff7f00; // Color de fondo al hacer hover
-        color: #fff; // Color del texto al hacer hover
+        background-color: #ff7f00;
+        color: #fff;
     }
 }
 
 .button-in-or {
-    color: #fff; // Color del texto
-    border: 2px solid #ff7f00; // Color del borde
-    background-color: #ff7f00; // Color de fondo
+    width: 150px;
+    height: 40px;
+    color: #fff;
+    border: 2px solid #ff7f00;
+    background-color: #ff7f00;
     padding: 10px 20px;
     font-size: 1em;
     font-weight: bold;
     border-radius: 8px;
     transition: background-color 0.3s, color 0.3s;
+    text-align: center;
 
     &:hover {
-        background-color: transparent; // Color de fondo al hacer hover
-        color: #ff7f00; // Color del texto al hacer hover
+        background-color: transparent;
+        color: #ff7f00;
     }
+}
+
+small {
+    color: red;
+}
+
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255, 55, 0, 0.896);
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .footer .note {
+    font-size: 12px;
+    color: white;
+  }
+
+.dir{
+    color: black;
 }

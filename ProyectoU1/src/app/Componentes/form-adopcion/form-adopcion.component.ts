@@ -1,6 +1,44 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, ValidatorFn, AbstractControl, FormControl, ValidationErrors } from '@angular/forms';
+
+
+export function onlyNumbersValidator(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    const value = control.value;
+    const onlyNumbers = /^[0-9]+$/.test(value);
+
+    return onlyNumbers ? null : { 'onlyNumbers': { value } };
+  };
+}
+
+export function noRepeatedDigitsValidator(): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+      const value = control.value;
+      const isRepeated = /^(\d)\1+$/.test(value);
+      return isRepeated ? { 'noRepeatedDigits': { value } } : null;
+  };
+}
+
+export function adultAgeValidator(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    const value = control.value;
+    if (!value) return null;
+
+    const birthDate = new Date(value);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+    const dayDifference = today.getDate() - birthDate.getDate();
+
+    if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
+      age--;
+    }
+
+    return age >= 18 ? null : { 'adultAge': { value } };
+  };
+}
+
 
 @Component({
   selector: 'app-form-adopcion',
@@ -19,21 +57,21 @@ export class FormAdopcionComponent {
 
   private buildForm(): void {
     this.adoptionForm = this.fb.group({
-      name: ['', Validators.required,Validators.maxLength(50)],
-      lastName: ['', Validators.required],
-      dni: ['', Validators.required],
-      birthYear: ['', Validators.required],
+      name: new FormControl ('', [Validators.required, Validators.maxLength(50)]),
+      lastName: new FormControl ('', Validators.required),
+      dni: new FormControl('',[Validators.required,Validators.maxLength(10),Validators.minLength(10), onlyNumbersValidator(), noRepeatedDigitsValidator()]),
+      birthYear: ['', [Validators.required, adultAgeValidator()]],
       address: ['', Validators.required],
       address2: [''],
-      postalCode: [''],
+      postalCode: ['', onlyNumbersValidator()],
       civilStatus: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
+      phoneNumber: ['', [Validators.required, onlyNumbersValidator()]],
       phoneNumber2: [''],
       email: ['', [Validators.required, Validators.email]],
       familyMembers: ['', Validators.required],
       children: ['', Validators.required],
-      numberOfChildren: [''],
-      futureChildren: ['', Validators.required],
+      numberOfChildren: [{ value: '', disabled: true }],
+      futureChildren: [{ value: '', disabled: true }],
       occupation: ['', Validators.required],
       workHours: ['', Validators.required],
       vacations: ['', Validators.required],
@@ -53,7 +91,51 @@ export class FormAdopcionComponent {
       financialAbility: ['', Validators.required],
       additionalInfo: ['', Validators.required]
     });
+
+    this.adoptionForm.get('children')?.valueChanges.subscribe(value => {
+      this.updateValidators(value);
+    });
   }
+
+  private updateValidators(children: string): void {
+    const numberOfChildrenControl = this.adoptionForm.get('numberOfChildren');
+    const futureChildrenControl = this.adoptionForm.get('futureChildren');
+
+    if (numberOfChildrenControl && futureChildrenControl) {
+      if (children === 'Sí') {
+        numberOfChildrenControl.setValidators([Validators.required]);
+        futureChildrenControl.clearValidators();
+        futureChildrenControl.setValue('');
+        futureChildrenControl.disable();
+        numberOfChildrenControl.enable();
+      } else {
+        futureChildrenControl.setValidators([Validators.required]);
+        numberOfChildrenControl.clearValidators();
+        numberOfChildrenControl.setValue('');
+        numberOfChildrenControl.disable();
+        futureChildrenControl.enable();
+      }
+  
+      numberOfChildrenControl.updateValueAndValidity();
+      futureChildrenControl.updateValueAndValidity();
+    }
+}
+
+
+  onDniKeyDown(event: KeyboardEvent) {
+    const allowedKeys = [8, 9, 46];
+    const keyCode = event.keyCode;
+  
+    if (!allowedKeys.includes(keyCode)) {
+      const allowedChars = /[0-9]/;
+      const key = event.key;
+  
+      if (!allowedChars.test(key)) {
+        event.preventDefault();
+      }
+    }
+  }
+  
 
   onSubmit(event: Event): void {
     event.preventDefault();
@@ -61,6 +143,7 @@ export class FormAdopcionComponent {
       const datosFormulario = this.adoptionForm.value;
       console.log(datosFormulario);
     } else {
+      console.log('Formulario inválido');
       this.adoptionForm.markAllAsTouched();
     }
   }
@@ -156,10 +239,6 @@ export class FormAdopcionComponent {
 
   get financialAbilityField() {
     return this.adoptionForm.get('financialAbility');
-  }
-
-  get additionalInfoField() {
-    return this.adoptionForm.get('additionalInfo');
   }
 
   get postalCodeField() {
