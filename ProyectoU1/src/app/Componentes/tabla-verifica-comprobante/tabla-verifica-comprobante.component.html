@@ -1,4 +1,4 @@
-<p-table [value]="verificaciones">
+<p-table [value]="verificaciones" styleClass="p-datatable-gridlines">
   <ng-template pTemplate="header">
     <tr>
       <th>ID</th>
@@ -17,8 +17,8 @@
       <td>{{verificacion.estado}}</td>
       <td>{{verificacion.monto}}</td>
       <td>
-        <button (click)="onAccept(verificacion)">✔️</button>
-        <button (click)="onReject(verificacion)">❌</button>
+        <p-button icon="pi pi-check" (click)="onAccept(verificacion)"></p-button>
+        <p-button icon="pi pi-times" (click)="onReject(verificacion)"></p-button>
       </td>
     </tr>
   </ng-template>
